@@ -1,8 +1,10 @@
 from pymongo import MongoClient
+from starlette.config import Config
+from services import config
 
-MONGO_URI = "mongodb+srv://aabdab28:Abd281202@cluster0.tvvhmmw.mongodb.net/sportDB"
+MONGO_URI = config.MONGO_URL
 client = MongoClient(MONGO_URI)
-db = client["sportDB"]
+db = client[config.MONGO_DBNAME]
 
 countries_collection = db["countries"]
 cities_collection = db["cities"]
