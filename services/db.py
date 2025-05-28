@@ -1,8 +1,8 @@
 from pymongo import MongoClient
+import certifi
 from services import config
 
-MONGO_URI = config.MONGO_URL
-client = MongoClient(MONGO_URI)
+client = MongoClient(config.MONGO_URL, tlsCAFile=certifi.where())
 db = client[config.MONGO_DBNAME]
 
 countries_collection = db["countries"]
