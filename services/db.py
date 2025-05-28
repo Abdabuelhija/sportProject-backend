@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from starlette.config import Config
+# from starlette.config import Config
 from services import config
 
 MONGO_URI = config.MONGO_URL
