@@ -1,5 +1,11 @@
 import os
 
+# Optional: Load .env locally only
+if os.getenv("RENDER") is None:
+    from dotenv import load_dotenv
+    load_dotenv()
+
+# Now load your environment variables
 MONGO_URL = os.getenv('MONGO_URL')
 MONGO_DBNAME = os.getenv('MONGO_DBNAME')
 SECRET_KEY = os.getenv('SECRET_KEY')
