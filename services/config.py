@@ -1,12 +1,5 @@
-from dotenv import load_dotenv
 import os
-from pathlib import Path
 
-# ✅ Load the .env file from the root directory
-env_path = Path(__file__).resolve().parent.parent / ".env"
-load_dotenv(dotenv_path=env_path)
-
-# ✅ Now load your environment variables
 MONGO_URL = os.getenv('MONGO_URL')
 MONGO_DBNAME = os.getenv('MONGO_DBNAME')
 SECRET_KEY = os.getenv('SECRET_KEY')
