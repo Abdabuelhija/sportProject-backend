@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from routes import players, admins
-import ssl, sys
 
 app = FastAPI()
 
