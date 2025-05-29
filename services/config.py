@@ -4,10 +4,6 @@ import os
 if os.getenv("RENDER") is None:
     from dotenv import load_dotenv
     load_dotenv()
-# Log to debug on Render
-print("MONGO_URL: this is test !!", os.getenv("MONGO_URL"))
-print("MONGO_DBNAME:", os.getenv("MONGO_DBNAME"))
-
 
 # Now load your environment variables
 MONGO_URL = os.getenv('MONGO_URL')

@@ -8,13 +8,6 @@ app = FastAPI()
 def read_root():
     return {"message": "welcome to sport project backend"}
 
-@app.get("/versions")
-def versions():
-    return {
-        "python_version": sys.version,
-        "openssl_version": ssl.OPENSSL_VERSION,
-    }
-
 # Include routers
 app.include_router(players.router)
 app.include_router(admins.router)
