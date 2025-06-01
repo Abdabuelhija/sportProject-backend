@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Request, HTTPException
 from services.db import admins_collection
 router = APIRouter()
+
 @router.get("/admins/")
 def get_admins():
     admins = list(admins_collection.find())
@@ -11,15 +12,15 @@ def get_admins():
 @router.post("/adminLogin")
 async def login_admin(request: Request):
     data = await request.json()
-    email = data.get("email")
+    username = data.get("username")
     password = data.get("password")
 
-    if not email or not password:
-        raise HTTPException(status_code=400, detail="Email and password are required")
+    if not username or not password:
+        raise HTTPException(status_code=400, detail="Username and password are required")
 
     admin = admins_collection.find_one({
-        "email": email,
-        "password": password  # ⚠️ Replace with hashed comparison in production!
+        "username": username,
+        "password": password
     })
 
     if not admin:
